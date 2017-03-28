@@ -1,0 +1,10 @@
+.dockerignore
+.editorconfig
+.git
+.gitignore
+.terraform
+codeship*
+LICENSE.md
+README.md
+secrets*
+tmp/

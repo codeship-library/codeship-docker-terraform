@@ -1,0 +1,9 @@
+version: '2'
+services:
+  terraform:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./tmp:/data/.terraform
+    encrypted_env_file: env.encrypted

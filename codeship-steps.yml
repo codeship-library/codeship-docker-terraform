@@ -1,0 +1,12 @@
+- service: terraform
+  command: version
+
+- service: terraform
+  command: init
+
+- service: terraform
+  command: plan --refresh=true --out=.terraform/codeship.tfplan .
+
+- service: terraform
+  tag: master
+  command: apply .terraform/codeship.tfplan
