@@ -4,9 +4,11 @@
 - service: terraform
   command: init
 
-- service: terraform
+- name: plan
+  service: terraform
   command: plan --refresh=true --out=.terraform/codeship.tfplan .
 
-- service: terraform
+- name: apply
+  service: terraform
   tag: master
   command: apply .terraform/codeship.tfplan
