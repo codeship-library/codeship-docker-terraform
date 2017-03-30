@@ -1,4 +1,4 @@
 .terraform
 codeship.aes
-secrets
+env
 tmp/*

@@ -6,5 +6,5 @@
 codeship*
 LICENSE.md
 README.md
-secrets*
+env*
 tmp/
