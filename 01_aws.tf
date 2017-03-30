@@ -7,11 +7,11 @@ variable "aws_secret_access_key" {}
 provider "aws" {
   access_key = "${var.aws_access_key_id}"
   secret_key = "${var.aws_secret_access_key}"
-  region = "eu-central-1"
+  region = "us-east-1"
 }
 
-resource "aws_s3_bucket" "codeship-terraform" {
-  bucket = "codeship-terraform"
+resource "aws_s3_bucket" "remote-state-bucket" {
+  bucket = "codeship-pro-terraform-state"
   acl = "private"
 
   versioning {
@@ -23,28 +23,24 @@ resource "aws_s3_bucket" "codeship-terraform" {
     enabled = true
 
     noncurrent_version_transition {
-      days = 30
+      days = 7
       storage_class = "STANDARD_IA"
     }
 
-    noncurrent_version_transition {
-      days = 60
-      storage_class = "GLACIER"
-    }
-
     noncurrent_version_expiration {
-      days = 90
+      days = 28
     }
   }
 
   tags {
-    project = "shipyard"
+    project = "codeship-pro-terraform-example"
     environment = "production"
+    owner = "customer-success"
   }
 }
 
-resource "aws_dynamodb_table" "codeship-terraform" {
-  name = "codeship-terraform"
+resource "aws_dynamodb_table" "remote-state-lock" {
+  name = "codeship-pro-terraform-lock"
   read_capacity = 1
   write_capacity = 1
   hash_key = "LockID"
@@ -55,17 +51,19 @@ resource "aws_dynamodb_table" "codeship-terraform" {
   }
 
   tags {
-    project = "shipyard"
+    project = "codeship-pro-terraform-example"
     environment = "production"
+    owner = "customer-success"
   }
 }
 
-resource "aws_kms_key" "terraform_state" {
-  description = "terraform remote state encryption"
+resource "aws_kms_key" "terraform_state_encryption_key" {
+  description = "Codeship Pro Terraform example, remote state encryption key"
   deletion_window_in_days = 7
 
   tags {
-    project = "shipyard"
+    project = "codeship-pro-terraform-example"
     environment = "production"
+    owner = "customer-success"
   }
 }
