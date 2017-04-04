@@ -23,12 +23,12 @@ resource "aws_s3_bucket" "remote-state-bucket" {
     enabled = true
 
     noncurrent_version_transition {
-      days = 7
+      days = 30
       storage_class = "STANDARD_IA"
     }
 
     noncurrent_version_expiration {
-      days = 28
+      days = 60
     }
   }
 
