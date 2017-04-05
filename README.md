@@ -1,5 +1,7 @@
 # Codeship Pro, Terraform Example
 
+[ ![Codeship Status for codeship-experimental/codeship-docker-terraform](https://app.codeship.com/projects/c4497440-fb32-0134-b168-721cf569a862/status?branch=master)](https://app.codeship.com/projects/211443)
+
 This sample repository details the steps necessary to get started with [terraform](https://terraform.io) on Codeship Pro.
 
 **It is in experimental state right now and might not work for every setup.**
