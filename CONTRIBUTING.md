@@ -29,7 +29,7 @@ In all of the above cases, reach out to our support team at [support@codeship.co
 *This file was taken from https://github.com/middleman/middleman-heroku/blob/master/CONTRIBUTING.md and extended for use with the Codeship documentation.*
 
 [free-sw]: http://www.fsf.org/licensing/essays/free-sw.html
-[issues]: https://github.com/codeship-experimental/codeship-docker-terraform/issues
+[issues]: https://github.com/codeship-library/codeship-docker-terraform/issues
 [gist]: https://gist.github.com/
 [fork]: http://help.github.com/fork-a-repo/
 [branch]: https://github.com/blog/1377-create-and-delete-branches
